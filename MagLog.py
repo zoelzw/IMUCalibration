@@ -57,8 +57,8 @@ def dataParser(raw):
     return x,y,z
 
 def dataStream(ESP32):
-    SAMPLE_FREQ = 10 #hz
-    SAMPLE_TIME = 3 #s
+    SAMPLE_FREQ = 100 #hz
+    SAMPLE_TIME = 30 #s
     sample_delay = 1/SAMPLE_FREQ
     N = int(SAMPLE_FREQ*SAMPLE_TIME)
     #Initialize output
@@ -92,7 +92,7 @@ def dataLog(measurements,FILE):
 def dataplot(measurements,PIC):
     print("plotting data")
 
-    
+
 def main():
     port = find_ESP32()
     ESP32 = serial.Serial(port,baudrate=115200)
@@ -101,7 +101,7 @@ def main():
     #stream to get measurements
     measurements = dataStream(ESP32)
     print(measurements)
-    #log data and plot
+    #log data 
     dataLog(measurements,"raw.txt")
 if __name__ == "__main__":
     main()
