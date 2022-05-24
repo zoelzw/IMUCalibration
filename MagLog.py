@@ -57,8 +57,8 @@ def dataParser(raw):
     return x,y,z
 
 def dataStream(ESP32):
-    SAMPLE_FREQ = 100 #hz
-    SAMPLE_TIME = 60 #s
+    SAMPLE_FREQ = 10 #hz
+    SAMPLE_TIME = 30 #s
     sample_delay = 1/SAMPLE_FREQ
     N = int(SAMPLE_FREQ*SAMPLE_TIME)
     #Initialize output
