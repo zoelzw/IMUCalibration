@@ -23,12 +23,26 @@ def dataPlot(x,y,z,title):
     ax.set_ylabel("y (uT)")
     ax.set_zlabel("z (uT)")
     plt.show()
+ 
+
+def twoDPlot(parameter1,parameter2,title):
+    fig = plt.figure(figsize=(10,10))
+    ax = plt.axes()
+    ax.scatter(parameter1,parameter2, color = "r")
+    ax.set_title(title)
+    ax.set_xlabel("x (uT)")
+    ax.set_ylabel("y (uT)")
+    plt.show()
+    # return 
 
 def main():
-    FILENAME = "raw.txt"
+    FILENAME = "Data/raw.txt"
     x,y,z = dataRead(FILENAME)
-
-    dataPlot(x,y,z,"Magentometer Raw Readings")
+    title = "Magentometer Raw Readings"
+    dataPlot(x,y,z,title)
+    twoDPlot(x,y,title+" xy plane")
+    # twoDPlot(x,z,title+" xz plane")
+    # twoDPlot(y,z,title+" yz plane")
 
 if __name__ == "__main__":
     main()
