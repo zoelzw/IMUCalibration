@@ -102,6 +102,6 @@ def main():
     measurements = dataStream(ESP32)
     print(measurements)
     #log data 
-    dataLog(measurements,"raw.txt")
+    dataLog(measurements,"Data/raw1.txt")
 if __name__ == "__main__":
     main()

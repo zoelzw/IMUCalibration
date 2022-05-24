@@ -5,7 +5,7 @@ from matplotlib import projections
 from mpl_toolkits import mplot3d 
 import numpy as np 
 import matplotlib.pyplot as plt 
-
+from scipy import stats
 # prepare data 
 def dataRead(FILENAME):
     x = np.loadtxt(FILENAME)[:,0]
@@ -34,15 +34,25 @@ def twoDPlot(parameter1,parameter2,title):
     ax.set_ylabel("y (uT)")
     plt.show()
     # return 
+def remove_outliers(arr, k):
+    mu, sigma = np.mean(arr, axis=0), np.std(arr, axis=0, ddof=1)
+    return arr[np.all(np.abs((arr - mu) / sigma) < k, axis=1)]
 
 def main():
-    FILENAME = "Data/raw.txt"
+    FILENAME = "Data/raw1.txt"
     x,y,z = dataRead(FILENAME)
+    # data = np.loadtxt("Data/raw1.txt")
+    # nodata = remove_outliers(data,3)
+    # x = nodata[:,0]
+    # y = nodata[:,1]
+    # z = nodata[:,2]
+    
+    
     title = "Magentometer Raw Readings"
     dataPlot(x,y,z,title)
     twoDPlot(x,y,title+" xy plane")
-    # twoDPlot(x,z,title+" xz plane")
-    # twoDPlot(y,z,title+" yz plane")
+    twoDPlot(x,z,title+" xz plane")
+    twoDPlot(y,z,title+" yz plane")
 
 if __name__ == "__main__":
     main()
