@@ -57,7 +57,7 @@ def dataParser(raw):
     return x,y,z
 
 def dataStream(ESP32):
-    SAMPLE_FREQ = 10 #hz
+    SAMPLE_FREQ = 20 #hz
     SAMPLE_TIME = 30 #s
     sample_delay = 1/SAMPLE_FREQ
     N = int(SAMPLE_FREQ*SAMPLE_TIME)
@@ -102,6 +102,6 @@ def main():
     measurements = dataStream(ESP32)
     print(measurements)
     #log data 
-    dataLog(measurements,"Data/raw1.txt")
+    dataLog(measurements,"Data/raw3.txt")
 if __name__ == "__main__":
     main()

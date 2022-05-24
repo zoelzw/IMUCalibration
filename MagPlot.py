@@ -39,13 +39,13 @@ def remove_outliers(arr, k):
     return arr[np.all(np.abs((arr - mu) / sigma) < k, axis=1)]
 
 def main():
-    # FILENAME = "Data/raw1.txt"
-    # x,y,z = dataRead(FILENAME)
-    data = np.loadtxt("Data/raw1.txt")
-    nodata = remove_outliers(data,2)
-    x = nodata[:,0]
-    y = nodata[:,1]
-    z = nodata[:,2]
+    FILENAME = "Data/raw3.txt"
+    x,y,z = dataRead(FILENAME)
+    # data = np.loadtxt("Data/raw1.txt")
+    # nodata = remove_outliers(data,2)
+    # x = nodata[:,0]
+    # y = nodata[:,1]
+    # z = nodata[:,2]
     
     
     title = "Magentometer Raw Readings"
